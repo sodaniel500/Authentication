@@ -7,6 +7,7 @@ export default function App() {
     <SafeAreaView style={{flex: 1, backgroundColor: '#F9FBFC'}}>
       <Navigation/>
       <StatusBar style="auto" />
+      <View></View>
       </SafeAreaView>
   );
 }
