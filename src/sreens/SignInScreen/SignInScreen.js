@@ -2,7 +2,9 @@ import { StyleSheet, Text, View, Image, SafeAreaView, useWindowDimensions, Scrol
 import React, { useState } from 'react'
 import IMG from '../../../assets/images/IMG.png'
 import Custominput from '../../components/Custominput'
-import CustomButtton from '../../components/Custominput/CustomButtton'
+import CustomButton from '../../components/CustomButton'
+import SocialSignInButtons from '../../components/SocialSignInButtons'
+import { useNavigation } from '@react-navigation/native'
 
 const SignInScreen = () => {
     const [username, setUsername] = useState('')
@@ -10,25 +12,20 @@ const SignInScreen = () => {
 
 
     const { height } = useWindowDimensions()
+    const navigation = useNavigation();
 
     const onSignInPressed = () => {
-        console.warn('Sign in')
+        // validate user
+
+        navigation.navigate('HomeScreen');
     }
 
     const onForgotPasswordPressed = () => {
-        console.warn('onForgotPasswordPressed')
-    }
-
-    const onSignInFacebook = () => {
-        console.warn('onSignInFacebook')
-    }
-
-    const onSignInGoogle = () => {
-        console.warn('onSignInGoogle')
+        navigation.navigate('ForgotPassword')
     }
 
     const onSignUpPress = () => {
-        console.warn('onSignUpPress')
+        navigation.navigate('SignUp')
     }
 
 
@@ -51,31 +48,20 @@ const SignInScreen = () => {
                 secureTextEntry
             />
 
-            <CustomButtton text='Sign In' onPress={onSignInPressed} />
+            <CustomButton text='Sign In' onPress={onSignInPressed} />
 
-            <CustomButtton
+            <CustomButton
                 text='Forgot password?'
                 onPress={onForgotPasswordPressed}
                 type='TERTIAY'
             />
+           
+            <SocialSignInButtons />
 
-            <CustomButtton
-                text='Sign In with Facebook'
-                onPress={onSignInFacebook}
-                bgColor="#E7EAF4"
-                fgColor="#4765A9"
-            />
-            <CustomButtton
-                text='Sign In with Google'
-                onPress={onSignInGoogle}
-                bgColor="#FAE9EA"
-                fgColor="#DD4D44"
-            />
-
-            <CustomButtton
+            <CustomButton
                 text="Don't have an account? Create one"
                 onPress={onSignUpPress}
-                type='TERTIAY'
+                type='TERTIARY'
             />
 
         </View>

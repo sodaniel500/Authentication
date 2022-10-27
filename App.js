@@ -1,11 +1,11 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View,SafeAreaView } from 'react-native';
-import SignInScreen from './src/sreens/SignInScreen/SignInScreen';
+import Navigation from './src/navigation/Index';
 
 export default function App() {
   return (
     <SafeAreaView style={{flex: 1, backgroundColor: '#F9FBFC'}}>
-      <SignInScreen/>
+      <Navigation/>
       <StatusBar style="auto" />
       </SafeAreaView>
   );
